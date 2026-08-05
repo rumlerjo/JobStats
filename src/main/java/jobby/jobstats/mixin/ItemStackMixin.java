@@ -23,15 +23,12 @@ public abstract class ItemStackMixin {
             ItemStack stack = (ItemStack) (Object) this;
             
             if (StatManager.isTrackable(stack)) {
-                // Filter: Check if the item is armor (Equippable with Max Damage) or a Shield
                 boolean isArmorOrShield = (stack.has(DataComponents.EQUIPPABLE) && stack.has(DataComponents.MAX_DAMAGE)) || stack.is(Items.SHIELD);
                 
                 if (isArmorOrShield) {
-                    // Replaced DAMAGE_TAKEN with your exact enum naming: ARMOR_DAMAGE
                     StatManager.incrementStat(stack, StatType.ARMOR_DAMAGE, damage);
                 }
                 
-                // We still want to track ownership when tools take damage, so this remains outside the filter
                 StatManager.setOwnership(stack, player.getName().getString());
             }
         }

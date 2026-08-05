@@ -16,7 +16,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin({BowItem.class, CrossbowItem.class, TridentItem.class})
 public abstract class ProjectileWeaponMixin {
     
-    // Notice the updated CallbackInfoReturnable<Boolean>
     @Inject(method = "releaseUsing", at = @At("HEAD"))
     private void onReleaseUsing(ItemStack stack, Level level, LivingEntity entityLiving, int timeLeft, CallbackInfoReturnable<Boolean> cir) {
         if (!level.isClientSide() && StatManager.isTrackable(stack)) {

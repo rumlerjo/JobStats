@@ -12,22 +12,7 @@ import net.minecraft.world.level.block.RotatedPillarBlock;
 
 public class AdditionalEvents {
     public static void register() {
-        
-        // Log Stripping
-        UseBlockCallback.EVENT.register((player, level, hand, hitResult) -> {
-            if (!level.isClientSide()) {
-                ItemStack stack = player.getItemInHand(hand);
-                if (stack.getItem() instanceof AxeItem && level.getBlockState(hitResult.getBlockPos()).getBlock() instanceof RotatedPillarBlock) {
-                    if (StatManager.isTrackable(stack)) {
-                        StatManager.incrementStat(stack, StatType.LOGS_STRIPPED, 1);
-                    }
-                }
-            }
-            return InteractionResult.PASS;
-        });
-
         // Elytra Flight Time (Ticks)
-        // Corrected to START_LEVEL_TICK for MojMap
         ServerTickEvents.START_LEVEL_TICK.register(level -> {
             level.players().forEach(player -> {
                 if (player.isFallFlying()) {

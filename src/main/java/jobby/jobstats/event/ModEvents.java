@@ -5,5 +5,6 @@ public class ModEvents {
         BlockEventHandler.register();
         CombatEventHandler.register();
         InteractionEventHandler.register();
+        AdditionalEvents.register();
     }
 }

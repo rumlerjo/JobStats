@@ -8,7 +8,6 @@ import net.minecraft.world.item.ItemStack;
 
 public class CombatEventHandler {
     public static void register() {
-        // Expanded the lambda to (level, entity, killedEntity, damageSource)
         ServerEntityCombatEvents.AFTER_KILLED_OTHER_ENTITY.register((level, entity, killedEntity, damageSource) -> {
             if (entity instanceof ServerPlayer player) {
                 ItemStack mainHandStack = player.getMainHandItem();

@@ -9,7 +9,9 @@
     "PlayerMixin",
     "ProjectileWeaponMixin",
     "ServerGamePacketListenerImplMixin",
-    "SlotMixin"
+    "SlotMixin",
+    "LivingEntityMixin",
+    "AxeItemMixin"
   ],
   "injectors": {
       "defaultRequire": 1

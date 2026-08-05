@@ -13,7 +13,6 @@ import java.util.Map;
 
 public class ColorConfig {
     private static final Path CONFIG_DIR = FabricLoader.getInstance().getConfigDir().resolve("JobStats");
-    // Updated file name to ToolTipColors.yaml
     private static final Path CONFIG_FILE = CONFIG_DIR.resolve("ToolTipColors.yaml");
 
     private static boolean useOneColor = false;
