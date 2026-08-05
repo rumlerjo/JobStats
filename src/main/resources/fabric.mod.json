@@ -3,13 +3,13 @@
 	"id": "jobstats",
 	"version": "${version}",
 	"name": "JobStats",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "A Minecraft Fabric Mod for tool stat tracking",
 	"authors": [
 		"Me!"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://github.com/rumlerjo",
+		"sources": "https://github.com/rumlerjo/JobStats"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/jobstats/icon.png",
@@ -17,17 +17,10 @@
 	"entrypoints": {
 		"main": [
 			"jobby.jobstats.JobStats"
-		],
-		"client": [
-			"jobby.jobstats.client.JobStatsClient"
 		]
 	},
 	"mixins": [
-		"jobstats.mixins.json",
-		{
-			"config": "jobstats.client.mixins.json",
-			"environment": "client"
-		}
+		"jobstats.mixins.json"
 	],
 	"depends": {
     "fabricloader": ">=0.19.3",
