@@ -1,0 +1,20 @@
+{
+  "required": true,
+  "package": "jobby.jobstats.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "refmap": "jobstats-refmap.json",
+  "mixins": [
+    "FishingHookMixin",
+    "ItemStackMixin",
+    "PlayerMixin",
+    "ProjectileWeaponMixin",
+    "ServerGamePacketListenerImplMixin",
+    "SlotMixin"
+  ],
+  "injectors": {
+      "defaultRequire": 1
+  },
+  "overwrites": {
+      "requireAnnotations": true
+  }
+}
