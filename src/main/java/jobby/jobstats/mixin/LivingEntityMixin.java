@@ -27,7 +27,6 @@ public abstract class LivingEntityMixin {
                 
                 // Ignore empty hands
                 if (!weapon.isEmpty()) {
-                    // Since you mentioned rounding the damage, Math.round() handles the float-to-int conversion
                     StatManager.incrementStat(weapon, StatType.DAMAGE_DEALT, Math.round(amount));
                 }
             }

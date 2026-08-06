@@ -1,7 +1,6 @@
 # JobStats - A Fabric tool stat tracker based on https://modrinth.com/plugin/toolstats
 
-This was primarily "vibe coded" with Gemini over a couple days as a replacement for toolstats since there isn't anything exactly like it.
-Doing this stuff using item lore is kind of inefficient as are the mixins.
+This was primarily "vibe coded" with Gemini over a couple days as a replacement for toolstats since there isn't anything exactly like it for Fabric server.
 
 ## Color config
 
