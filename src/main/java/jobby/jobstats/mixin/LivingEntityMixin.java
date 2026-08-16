@@ -25,8 +25,8 @@ public abstract class LivingEntityMixin {
             if (source.getEntity() instanceof ServerPlayer player) {
                 ItemStack weapon = player.getMainHandItem();
                 
-                // Ignore empty hands
-                if (!weapon.isEmpty()) {
+                // Ignore empty hands and non-trackable items
+                if (!weapon.isEmpty() && StatManager.isTrackable(weapon)) {
                     StatManager.incrementStat(weapon, StatType.DAMAGE_DEALT, Math.round(amount));
                 }
             }

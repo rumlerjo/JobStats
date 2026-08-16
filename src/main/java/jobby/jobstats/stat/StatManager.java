@@ -18,6 +18,7 @@ public class StatManager {
 
     public static boolean isTrackable(ItemStack stack) {
         if (stack == null || stack.isEmpty()) return false;
+        if (stack.is(net.minecraft.tags.ItemTags.ARROWS)) return false;
         
         return stack.has(DataComponents.TOOL) || 
                stack.has(DataComponents.WEAPON) || 
@@ -60,6 +61,38 @@ public class StatManager {
             
             stack.set(DataComponents.CUSTOM_DATA, CustomData.of(nbt));
             updateLore(stack, nbt);
+        }
+    }
+
+    public static void removeStats(ItemStack stack) {
+        if (stack == null || stack.isEmpty()) return;
+
+        CustomData customData = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY);
+        CompoundTag nbt = customData.copyTag();
+        
+        boolean modified = false;
+        if (nbt.contains("jobstats:owner")) {
+            nbt.remove("jobstats:owner");
+            modified = true;
+        }
+        if (nbt.contains("jobstats:created_date")) {
+            nbt.remove("jobstats:created_date");
+            modified = true;
+        }
+        for (StatType type : StatType.values()) {
+            if (nbt.contains(type.getKey())) {
+                nbt.remove(type.getKey());
+                modified = true;
+            }
+        }
+        
+        if (modified) {
+            if (nbt.isEmpty()) {
+                stack.remove(DataComponents.CUSTOM_DATA);
+            } else {
+                stack.set(DataComponents.CUSTOM_DATA, CustomData.of(nbt));
+            }
+            stack.remove(DataComponents.LORE);
         }
     }
 

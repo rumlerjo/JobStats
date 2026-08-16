@@ -13,9 +13,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class SlotMixin {
     @Inject(method = "onTake", at = @At("HEAD"))
     private void onSlotTake(Player player, ItemStack stack, CallbackInfo ci) {
-        if (!player.level().isClientSide() && StatManager.isTrackable(stack)) {
-            // This covers taking from Chests (Loot), Crafting Results, and Merchant slots
-            StatManager.setOwnership(stack, player.getName().getString());
+        if (!player.level().isClientSide()) {
+            if (StatManager.isTrackable(stack)) {
+                // This covers taking from Chests (Loot), Crafting Results, and Merchant slots
+                StatManager.setOwnership(stack, player.getName().getString());
+            } else if (stack.is(net.minecraft.tags.ItemTags.ARROWS)) {
+                StatManager.removeStats(stack);
+            }
         }
     }
 }
