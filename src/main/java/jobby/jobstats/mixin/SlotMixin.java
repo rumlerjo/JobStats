@@ -17,7 +17,7 @@ public abstract class SlotMixin {
             if (StatManager.isTrackable(stack)) {
                 // This covers taking from Chests (Loot), Crafting Results, and Merchant slots
                 StatManager.setOwnership(stack, player.getName().getString());
-            } else if (stack.is(net.minecraft.tags.ItemTags.ARROWS)) {
+            } else if (stack.is(net.minecraft.tags.ItemTags.ARROWS) || stack.has(net.minecraft.core.component.DataComponents.FOOD)) {
                 StatManager.removeStats(stack);
             }
         }

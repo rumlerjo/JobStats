@@ -19,6 +19,7 @@ public class StatManager {
     public static boolean isTrackable(ItemStack stack) {
         if (stack == null || stack.isEmpty()) return false;
         if (stack.is(net.minecraft.tags.ItemTags.ARROWS)) return false;
+        if (stack.has(DataComponents.FOOD)) return false;
         
         return stack.has(DataComponents.TOOL) || 
                stack.has(DataComponents.WEAPON) || 
