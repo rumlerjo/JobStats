@@ -3,7 +3,7 @@ package jobby.jobstats.mixin;
 import jobby.jobstats.stat.StatManager;
 import jobby.jobstats.stat.StatType;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import org.spongepowered.asm.mixin.Mixin;
@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(AxeItem.class)
+@Mixin(Item.class)
 public abstract class AxeItemMixin {
 
     @Inject(method = "useOn", at = @At("RETURN"))
@@ -20,7 +20,7 @@ public abstract class AxeItemMixin {
         if (cir.getReturnValue().consumesAction() && !context.getLevel().isClientSide()) {
             ItemStack stack = context.getItemInHand();
             
-            if (StatManager.isTrackable(stack)) {
+            if (stack.is(net.minecraft.tags.ItemTags.AXES) && StatManager.isTrackable(stack)) {
                 StatManager.incrementStat(stack, StatType.LOGS_STRIPPED, 1);
             }
         }

@@ -3,12 +3,8 @@ package jobby.jobstats.event;
 import jobby.jobstats.stat.StatManager;
 import jobby.jobstats.stat.StatType;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
-import net.fabricmc.fabric.api.event.player.UseBlockCallback;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.RotatedPillarBlock;
 
 public class AdditionalEvents {
     public static void register() {

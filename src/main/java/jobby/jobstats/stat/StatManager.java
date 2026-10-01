@@ -25,6 +25,12 @@ public class StatManager {
                stack.has(DataComponents.WEAPON) || 
                (stack.has(DataComponents.EQUIPPABLE) && stack.has(DataComponents.MAX_DAMAGE)) || 
                stack.has(DataComponents.GLIDER) || 
+               stack.is(net.minecraft.tags.ItemTags.SWORDS) ||
+               stack.is(net.minecraft.tags.ItemTags.AXES) ||
+               stack.is(net.minecraft.tags.ItemTags.PICKAXES) ||
+               stack.is(net.minecraft.tags.ItemTags.SHOVELS) ||
+               stack.is(net.minecraft.tags.ItemTags.HOES) ||
+               stack.is(net.minecraft.tags.ItemTags.MACE_ENCHANTABLE) ||
                stack.is(Items.SHIELD) || 
                stack.is(Items.TRIDENT) || 
                stack.is(Items.SHEARS) || 
